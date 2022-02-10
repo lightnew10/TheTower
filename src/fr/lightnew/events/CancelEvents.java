@@ -45,7 +45,7 @@ public class CancelEvents implements Listener {
     }
 
     @EventHandler
-    public void onDamage(PlayerDropItemEvent event) {
+    public void onDrop(PlayerDropItemEvent event) {
         if (GameStats.inState(GameStats.LOBBY) || GameStats.inState(GameStats.END))
             event.setCancelled(true);
         if (GameStats.inState(GameStats.GAME))
@@ -53,7 +53,7 @@ public class CancelEvents implements Listener {
     }
 
     @EventHandler
-    public void onDamage(PlayerPickupItemEvent event) {
+    public void onPickup(PlayerPickupItemEvent event) {
         if (GameStats.inState(GameStats.LOBBY) || GameStats.inState(GameStats.END))
             event.setCancelled(true);
         if (GameStats.inState(GameStats.GAME)) {

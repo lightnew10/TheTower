@@ -10,6 +10,9 @@ import fr.lightnew.game.Timers;
 import fr.lightnew.utils.CreateFiles;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TheTower extends JavaPlugin {
@@ -56,6 +59,13 @@ public class TheTower extends JavaPlugin {
     public void onDisable() {
         log(ChatColor.RED + "The Tower is Disable");
         CreateFiles.removeFilesInFolder();
+        removeAllBlock();
+    }
+    public void removeAllBlock() {
+        for (Location loc : AntiPlaceBlock.removeAllBlock.values()) {
+            Bukkit.getWorld("world").getBlockAt(loc).setType(Material.AIR);
+        }
+        AntiPlaceBlock.removeAllBlock.clear();
     }
     public static void log(String s) {Bukkit.getConsoleSender().sendMessage(s);}
 }

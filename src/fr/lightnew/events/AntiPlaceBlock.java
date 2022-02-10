@@ -2,12 +2,16 @@ package fr.lightnew.events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 
+import java.util.HashMap;
+
 public class AntiPlaceBlock implements Listener {
+    public static HashMap<Block, Location> removeAllBlock = new HashMap<>();
 
     @EventHandler
     public void onPlace(BlockPlaceEvent event) {
@@ -37,5 +41,7 @@ public class AntiPlaceBlock implements Listener {
             event.setCancelled(true);
             player.sendMessage(ChatColor.RED + "Vous êtes à la hauteur maximum");
         }
+
+        removeAllBlock.put(event.getBlockPlaced(), event.getBlockPlaced().getLocation());
     }
 }
