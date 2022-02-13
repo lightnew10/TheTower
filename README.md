@@ -20,3 +20,6 @@ https://i.imgur.com/HtIHuaS.png
 
 Blue Team:
 https://i.imgur.com/66cCCLH.png
+
+Futur update : 
+- malus team
